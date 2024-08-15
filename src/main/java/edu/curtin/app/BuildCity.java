@@ -35,5 +35,23 @@ public interface BuildCity {
             }
     
             return totalCost;
-        }    
+        } 
+        
+        default void displayStructure(String[] coords,String[][] structures){
+            for(int x = 0; x <Integer.parseInt((coords[0]+1));x++){
+                for(int y = 0; y <Integer.parseInt((coords[1]+1));y++){
+                    if(structures[x][y].equals("x")){
+                        System.out.print("x");
+                    }
+                    else{
+                        System.out.print(" ");
+                    }
+            
+                    
+                    
+                    System.out.print("\n");
+            }
+            
+        }
     }
+}

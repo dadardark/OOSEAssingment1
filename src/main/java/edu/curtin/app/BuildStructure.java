@@ -72,7 +72,7 @@ public class BuildStructure{
         else if(material.equals("concrete")){
             totalCost = 20000*floors;
         }
-
+        
         if(TerrainGetters.getSwampy(terrain)!= null){
             totalCost = totalCost + (20000*floors);
         }
@@ -84,7 +84,6 @@ public class BuildStructure{
         }
         if(TerrainGetters.getFlood(terrain)!= null){
             totalCost = totalCost * (1+(TerrainGetters.getFlood(terrain).getFloodRisk()/50));
-
         }
 
         return totalCost;

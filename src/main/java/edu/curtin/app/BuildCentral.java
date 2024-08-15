@@ -12,6 +12,7 @@ public class BuildCentral implements BuildCity{
         int builtStructures = 0;
         int row = 1;
         int col = 1;
+        String[][] structures = new String[Integer.parseInt(coords[0])][Integer.parseInt(coords[1])];
          for(Terrain terrain : grid){
             int distance = (int)Math.sqrt((row-((Integer.parseInt(coords[1])-1)/2)^2)+(col-((Integer.parseInt(coords[0])-1)/2)^2));
             //System.out.println(row + "," + col);
@@ -41,6 +42,8 @@ public class BuildCentral implements BuildCity{
                 Double buildCost = costStructure(terrain, floors, foundation, matString);
                 totalCost = totalCost + buildCost;
                 builtStructures++;
+
+                structures[row-1][col-1] = "x";
             }
             if(row == Integer.parseInt(coords[0])){
                 col++;
@@ -49,6 +52,7 @@ public class BuildCentral implements BuildCity{
             row++;
        }
        System.out.println("\nTotal cost: " + totalCost + "\nStructures built: " + builtStructures);
+       displayStructure(coords, structures);
        return null;
     }
 }
