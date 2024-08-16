@@ -6,7 +6,7 @@ import  java.lang.Math;
 public class BuildCentral implements BuildCity{
 
     @Override
-    public String buildStructure(ArrayList<Terrain> grid, String[] coords, int floors, int foundation, int material) {
+    public void buildStructure(ArrayList<Terrain> grid, String[] coords, int floors, int foundation, int material) {
         
         double totalCost = 0;
         int builtStructures = 0;
@@ -29,15 +29,20 @@ public class BuildCentral implements BuildCity{
             //System.out.println(distance + " " + matString);
 
             if(TerrainGetters.getSwampy(terrain)!= null && foundation == 1){
+                structures[row-1][col-1] = " ";              
             }
             else if (TerrainGetters.getSwampy(terrain) != null && material == 1){
+                structures[row-1][col-1] = " ";              
             }
             else if (TerrainGetters.getHeritage(terrain)!= null && !(TerrainGetters.getHeritage(terrain).getHeritage()).equals(matString)){
-            }
+                structures[row-1][col-1] = " ";             
+             }
             else if(TerrainGetters.getHeight(terrain) != null && floors > TerrainGetters.getHeight(terrain).getHeight()){
-            }
+                structures[row-1][col-1] = " ";             
+             }
             else if (TerrainGetters.getFlood(terrain)!= null && floors < 3){
-            }
+                structures[row-1][col-1] = " ";           
+             }
             else {
                 Double buildCost = costStructure(terrain, floors, foundation, matString);
                 totalCost = totalCost + buildCost;
@@ -51,9 +56,8 @@ public class BuildCentral implements BuildCity{
             }
             row++;
        }
-       System.out.println("\nTotal cost: " + totalCost + "\nStructures built: " + builtStructures);
+       System.out.println("\nTotal cost: $" + String.format("%.2f",totalCost) + "\nStructures built: " + builtStructures);
        displayStructure(coords, structures);
-       return null;
     }
 }
     

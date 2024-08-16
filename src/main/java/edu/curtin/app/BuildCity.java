@@ -3,7 +3,7 @@ package edu.curtin.app;
 import java.util.*;
 
 public interface BuildCity {
-    public String buildStructure(ArrayList<Terrain> grid,String[] coords, int floors, int foundation, int material);
+    public void buildStructure(ArrayList<Terrain> grid,String[] coords, int floors, int foundation, int material);
 
     default Double costStructure(Terrain terrain, int floors, int foundation, String material){
             double totalCost = 0;
@@ -38,19 +38,19 @@ public interface BuildCity {
         } 
         
         default void displayStructure(String[] coords,String[][] structures){
-            for(int x = 0; x <Integer.parseInt((coords[0]+1));x++){
-                for(int y = 0; y <Integer.parseInt((coords[1]+1));y++){
+            final String RED_BOLD = "\033[1;31m";
+            final String RESET = "\033[0m";  
+            for(int x = 0; x <Integer.parseInt((coords[0]));x++){
+                for(int y = 0; y <Integer.parseInt((coords[1]));y++){
                     if(structures[x][y].equals("x")){
-                        System.out.print("x");
+                        System.out.print("|"+(x+1)+","+(y+1)+RED_BOLD+" x "+RESET);
                     }
                     else{
-                        System.out.print(" ");
-                    }
-            
-                    
-                    
-                    System.out.print("\n");
+                        System.out.print("|"+(x+1)+","+(y+1)+"   ");
+                    }  
             }
+            System.out.print(" |");
+            System.out.print("\n");
             
         }
     }
