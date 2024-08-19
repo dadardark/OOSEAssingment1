@@ -1,11 +1,11 @@
 package edu.curtin.app;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class BuildUniform implements BuildCity{
 
     @Override
-    public void buildStructure(ArrayList<Terrain> grid,String[] coords, int floors, int foundation, int material) {
+    public void buildStructure(List<Terrain> grid,String[] coords, int floors, int foundation, int material) {
         double totalCost = 0;
         int builtStructures =0;
         int row = 1;

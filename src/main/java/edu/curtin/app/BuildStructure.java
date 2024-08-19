@@ -3,7 +3,7 @@ import java.util.*;
 
 public class BuildStructure{
 
-    public static Terrain findStructure(ArrayList<Terrain> grid,String[] coords, int xCoord, int yCoord){
+    public static Terrain findStructure(List<Terrain> grid,String[] coords, int xCoord, int yCoord){
 
         int gridSizeX = Integer.parseInt(coords[0]);
         int x = 1;

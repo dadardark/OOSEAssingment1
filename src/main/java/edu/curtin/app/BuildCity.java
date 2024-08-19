@@ -3,7 +3,7 @@ package edu.curtin.app;
 import java.util.*;
 
 public interface BuildCity {
-    public void buildStructure(ArrayList<Terrain> grid,String[] coords, int floors, int foundation, int material);
+    public void buildStructure(List<Terrain> grid,String[] coords, int floors, int foundation, int material);
 
     default Double costStructure(Terrain terrain, int floors, int foundation, String material){
             double totalCost = 0;

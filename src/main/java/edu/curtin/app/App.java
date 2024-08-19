@@ -13,7 +13,7 @@ public class App
     public static void main(String[] args) 
     {
 
-        ArrayList<Terrain> grid = ReadFile.readMap(fileName);
+        List<Terrain> grid = ReadFile.readMap(fileName);
         String[] coords = ReadCoords.readCoords(fileName);
 
         System.out.println("File loaded successfully.");

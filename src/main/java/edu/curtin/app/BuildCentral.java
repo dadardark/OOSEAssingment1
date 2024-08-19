@@ -1,12 +1,12 @@
 package edu.curtin.app;
 
-import java.util.ArrayList;
-import  java.lang.Math;
+import java.util.List;
+import java.lang.Math;
 
 public class BuildCentral implements BuildCity{
 
     @Override
-    public void buildStructure(ArrayList<Terrain> grid, String[] coords, int floors, int foundation, int material) {
+    public void buildStructure(List<Terrain> grid, String[] coords, int floors, int foundation, int material) {
         
         double totalCost = 0;
         int builtStructures = 0;

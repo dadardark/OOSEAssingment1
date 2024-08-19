@@ -1,11 +1,11 @@
 package edu.curtin.app;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 //import java.util.logging.Logger;
 
 public class ReadFile
 {
-    public static ArrayList<Terrain> readMap(String fileName) 
+    public static List<Terrain> readMap(String fileName) 
     {
         var terrains = new ArrayList<Terrain>();
         
