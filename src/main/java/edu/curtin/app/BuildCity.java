@@ -43,10 +43,10 @@ public interface BuildCity {
             for(int x = 0; x <Integer.parseInt((coords[0]));x++){
                 for(int y = 0; y <Integer.parseInt((coords[1]));y++){
                     if(structures[x][y].equals("x")){
-                        System.out.print("|"+(x+1)+","+(y+1)+RED_BOLD+" x "+RESET);
+                        System.out.print("| "+(x+1)+","+(y+1)+RED_BOLD+" x "+RESET);
                     }
                     else{
-                        System.out.print("|"+(x+1)+","+(y+1)+"   ");
+                        System.out.print("| "+(x+1)+","+(y+1)+"   ");
                     }  
             }
             System.out.print(" |");
