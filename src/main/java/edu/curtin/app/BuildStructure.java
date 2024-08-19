@@ -52,7 +52,7 @@ public class BuildStructure{
             return("Cannot have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk());
         }
         else {
-            return("Structure can be built for a cost of: " + costStructure(terrain, floors, foundation, matString));
+            return("Structure can be built for a cost of: " + String.format("%.2f",costStructure(terrain, floors, foundation, matString)));
             
         }
     } 
