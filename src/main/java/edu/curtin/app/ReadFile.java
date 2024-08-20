@@ -3,6 +3,13 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Reads in a grid.txt file. Parses the data and creates terrain objects with one of the 3 terrain types: 
+ * Flat, Swampy or Rocky, if applicable.
+ * Then tries to recursivley aggreate zoning rules, as read in from the file, onto the terrain objects.
+*/
+
 public class ReadFile
 {
     private static final Logger logger = Logger.getLogger(ReadFile.class.getName());

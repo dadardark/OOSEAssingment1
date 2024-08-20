@@ -2,6 +2,13 @@ package edu.curtin.app;
 
 import java.util.*;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Interface containing default functions to calculate the total cost of structures built using the 'build city' menu option as
+ * well as providing a graphical represenation of where the structures are built. Also implemented by the 3 build city classes 
+ * (Uniform, Random and Central)
+*/
+
 public interface BuildCity {
     public void buildStructure(List<Terrain> grid,String[] coords, int floors, int foundation, int material);
 

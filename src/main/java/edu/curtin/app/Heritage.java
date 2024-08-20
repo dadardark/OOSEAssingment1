@@ -1,5 +1,10 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Heritage decorator which extends the ZoningDecorator class
+*/
+
 public class Heritage extends ZoningDecorator{
     private String material;
 

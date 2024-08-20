@@ -1,5 +1,10 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Swampy class for terrain types. Implements the Terrain interface.
+*/
+
 public class Swampy implements Terrain{
 
     private String terrainType;

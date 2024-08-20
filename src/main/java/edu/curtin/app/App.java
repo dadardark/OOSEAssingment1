@@ -3,6 +3,11 @@ package edu.curtin.app;
 import java.util.*;
 import java.util.logging.*;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Main class of the function. Reads in a user inputted file and displays the menu UI.
+*/
+
 public class App
 {
     private static final Logger logger = Logger.getLogger(App.class.getName());

@@ -2,6 +2,14 @@ package edu.curtin.app;
 import java.util.*;
 import java.util.logging.*;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Attempts to build a user-defined structure on a single grid square.
+ * NOTE: This class has static functions and does not follow the Strategy/Template pattern. 
+ * It is unable to implement the BuildCity interface as it requires a function to find the grid square and it's buildStructure
+ * function paramater is a single Terrain object rather than a list of Terrain objects.
+*/
+
 public class BuildStructure{
     private static final Logger logger = Logger.getLogger(BuildStructure.class.getName());
     final static String green = "\033[1;32m";

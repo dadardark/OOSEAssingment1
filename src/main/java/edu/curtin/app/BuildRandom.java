@@ -3,6 +3,12 @@ package edu.curtin.app;
 import java.util.List;
 import java.util.Random;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Attempts to build a random structure on every grid square. Implements the BuildCity interface.
+ * @param(List of terrain Objects, String array of grid size, int number of floors, int foundation type, int material type)
+*/
+
 public class BuildRandom implements BuildCity{
     final String green = "\033[1;32m";
     final String reset = "\033[0m"; 

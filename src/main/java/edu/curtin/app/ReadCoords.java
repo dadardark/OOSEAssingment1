@@ -1,6 +1,11 @@
 package edu.curtin.app;
 import java.io.*;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Reads in the first line of the grid.txt file and returns a string array containing the coordinates.
+*/
+
 public class ReadCoords {
 
     public static String[] readCoords(String fileName){

@@ -1,5 +1,10 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Rocky class for terrain types. Implements the Terrain interface.
+*/
+
 public class Rocky implements Terrain{
     private String terrainType;
 
