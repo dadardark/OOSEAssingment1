@@ -16,15 +16,13 @@ public class App
         List<Terrain> grid = ReadFile.readMap(fileName);
         String[] coords = ReadCoords.readCoords(fileName);
 
-        System.out.println("File loaded successfully.");
         boolean repeat = true;
         Scanner sc = new Scanner(System.in);
         int menuOption, gridCoordsX, gridCoordsY, floors, foundation, construction;
         int configure = 2;
 
         while(repeat == true) {
-            
-            System.out.println("\nWelcome to the city planner. Please choose one of the below options.\n1.Build structure\n2.Build city using configure option: " + configure + "\n3.Configure\n4.Quit");
+            System.out.println("\nWelcome to the city planner. Please choose one of the below options.\n\n1.Build structure\n\n2.Build city using configure option: " + configure + "\n\n3.Configure\n\n4.Quit");
             while (!sc.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a number.");
                 sc.next();
@@ -77,6 +75,7 @@ public class App
                         sc.next();
                     }
                     construction = sc.nextInt();
+                    System.out.print("\033\143");
                 } while(construction != 1 && construction != 2 && construction != 3 && construction != 4);
 
                 System.out.println(BuildStructure.buildStructure(BuildStructure.findStructure(grid,coords,gridCoordsX,gridCoordsY),floors,foundation,construction));
@@ -109,6 +108,7 @@ public class App
                         sc.next();
                     }
                     construction = sc.nextInt();
+                    System.out.print("\033\143");
                 } while(construction != 1 && construction != 2 && construction != 3 && construction != 4);
 
                     BuildUniform builder = new BuildUniform();
@@ -133,10 +133,12 @@ public class App
                         sc.next();
                     }
                     configure = sc.nextInt();
+                    System.out.print("\033\143");
                 } while(configure != 1 && configure != 2 && configure != 3 );
                     break;
 
                 case 4:
+                    System.out.print("\033\143");
                     System.out.println("Exiting program");
                     repeat=false;
                     break;

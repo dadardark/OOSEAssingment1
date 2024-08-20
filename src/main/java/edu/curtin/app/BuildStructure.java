@@ -1,19 +1,20 @@
 package edu.curtin.app;
 import java.util.*;
+import java.util.logging.*;
 
 public class BuildStructure{
+    private static final Logger logger = Logger.getLogger(BuildStructure.class.getName());
 
     public static Terrain findStructure(List<Terrain> grid,String[] coords, int xCoord, int yCoord){
 
         int gridSizeX = Integer.parseInt(coords[0]);
         int x = 1;
         int y = 1;
-        Terrain buildTerrain = null;
 
-        for(Terrain terrain: grid){
+        for(Terrain terrain : grid){
+        if(terrain != null){
             if(x == xCoord && y == yCoord){
-                buildTerrain = terrain;
-                return buildTerrain;
+                return terrain;
            }
             if (x == gridSizeX){
                 y++;
@@ -21,7 +22,9 @@ public class BuildStructure{
             }
             x++;
         }
-
+    }
+        
+        logger.severe("Grid location parsed in incorrectly");
         System.out.println("Grid location not found");
         return null;
     }
@@ -34,26 +37,33 @@ public class BuildStructure{
         else if(material == 3){matString = "brick";}
         else if(material == 4){matString = "concrete";}
 
-        System.out.println(terrain.description());
+        if(terrain != null){
+            System.out.println(terrain.description());
 
-        if(TerrainGetters.getSwampy(terrain)!= null && foundation == 1){
-            return ("Cannot build a slab foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
+            if(TerrainGetters.getSwampy(terrain)!= null && foundation == 1){
+                return ("Cannot build a slab foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
+            }
+            else if (TerrainGetters.getSwampy(terrain) != null && material == 1){
+                return ("Cannot build with wood foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
+            }
+            else if (TerrainGetters.getHeritage(terrain)!= null && !(TerrainGetters.getHeritage(terrain).getHeritage()).equals(matString)){
+                return ("Cannot build with different heritage materials: Heritage: " + TerrainGetters.getHeritage(terrain).getHeritage() + " != Inputted: " + matString);
+            }
+            else if(TerrainGetters.getHeight(terrain) != null && floors > TerrainGetters.getHeight(terrain).getHeight()){
+                return ("Cannot build above the height limit. Input floors: " + floors + " > Max floors: " + TerrainGetters.getHeight(terrain).getHeight());
+            }
+            else if (TerrainGetters.getFlood(terrain)!= null && floors < 3){
+                return("Cannot have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk());
+            }
+            else {
+                return("Structure can be built for a cost of: " + String.format("$" + "%.2f",costStructure(terrain, floors, foundation, matString)));
+                
+            }
         }
-        else if (TerrainGetters.getSwampy(terrain) != null && material == 1){
-            return ("Cannot build with wood foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
-        }
-        else if (TerrainGetters.getHeritage(terrain)!= null && !(TerrainGetters.getHeritage(terrain).getHeritage()).equals(matString)){
-            return ("Cannot build with different heritage materials: Heritage: " + TerrainGetters.getHeritage(terrain).getHeritage() + " != Inputted: " + matString);
-        }
-        else if(TerrainGetters.getHeight(terrain) != null && floors > TerrainGetters.getHeight(terrain).getHeight()){
-            return ("Cannot build above the height limit. Input floors: " + floors + " > Max floors: " + TerrainGetters.getHeight(terrain).getHeight());
-        }
-        else if (TerrainGetters.getFlood(terrain)!= null && floors < 3){
-            return("Cannot have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk());
-        }
-        else {
-            return("Structure can be built for a cost of: " + String.format("$" + "%.2f",costStructure(terrain, floors, foundation, matString)));
-            
+        else{
+            logger.severe("Grid location parsed in incorrectly");
+            return null;
+
         }
     } 
 

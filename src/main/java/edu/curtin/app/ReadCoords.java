@@ -7,7 +7,6 @@ public class ReadCoords {
         String[] parts = null;
         try(var reader = new BufferedReader(new FileReader(fileName))){
             
-
             String line = reader.readLine();
             for(int x = 0; x < 1; x++) {
                  parts = line.split(",");

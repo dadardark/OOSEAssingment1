@@ -1,5 +1,5 @@
 12,10
-flat,flood-risk=53.094943,contamination,height-limit=19
+flatflood-risk=53.094943,contamination,height-limit=19
 flat,height-limit=15,contamination,flood-risk=40.351358
 flat,height-limit=15,flood-risk=46.467301
 flat,height-limit=9
