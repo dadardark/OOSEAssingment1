@@ -4,6 +4,9 @@ import java.util.logging.*;
 
 public class BuildStructure{
     private static final Logger logger = Logger.getLogger(BuildStructure.class.getName());
+    final static String green = "\033[1;32m";
+    final static String red = "\033[1;31m";
+    final static String reset = "\033[0m"; 
 
     public static Terrain findStructure(List<Terrain> grid,String[] coords, int xCoord, int yCoord){
 
@@ -38,25 +41,25 @@ public class BuildStructure{
         else if(material == 4){matString = "concrete";}
 
         if(terrain != null){
-            System.out.println(terrain.description());
+            System.out.println(terrain.description() +"\n");
 
             if(TerrainGetters.getSwampy(terrain)!= null && foundation == 1){
-                return ("Cannot build a slab foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
+                return (red+"Cannot "+reset + "build a slab foundation in a "+ TerrainGetters.getSwampy(terrain).getSwampy());
             }
             else if (TerrainGetters.getSwampy(terrain) != null && material == 1){
-                return ("Cannot build with wood foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
+                return (red+"Cannot "+reset + "build with wood foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
             }
             else if (TerrainGetters.getHeritage(terrain)!= null && !(TerrainGetters.getHeritage(terrain).getHeritage()).equals(matString)){
-                return ("Cannot build with different heritage materials: Heritage: " + TerrainGetters.getHeritage(terrain).getHeritage() + " != Inputted: " + matString);
+                return (red+"Cannot "+reset + "build with different heritage materials: Heritage: " + TerrainGetters.getHeritage(terrain).getHeritage() + " != Inputted: " + matString);
             }
             else if(TerrainGetters.getHeight(terrain) != null && floors > TerrainGetters.getHeight(terrain).getHeight()){
-                return ("Cannot build above the height limit. Input floors: " + floors + " > Max floors: " + TerrainGetters.getHeight(terrain).getHeight());
+                return (red+"Cannot "+reset + "build above the height limit. Input floors: " + floors + " > Max floors: " + TerrainGetters.getHeight(terrain).getHeight());
             }
             else if (TerrainGetters.getFlood(terrain)!= null && floors < 2){
-                return("Cannot have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk());
+                return(red+"Cannot "+reset + "have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk());
             }
             else {
-                return("Structure can be built for a cost of: " + String.format("$" + "%.2f",costStructure(terrain, floors, foundation, matString)));
+                return("Structure "+green+ "can"+reset+ " be built for a cost of: " +green+ String.format("$" + "%.2f",costStructure(terrain, floors, foundation, matString))+reset);
                 
             }
         }

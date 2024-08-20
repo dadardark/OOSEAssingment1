@@ -4,6 +4,8 @@ import java.util.List;
 import java.lang.Math;
 
 public class BuildCentral implements BuildCity{
+    final String green = "\033[1;32m";
+    final String reset = "\033[0m"; 
 
     @Override
     public void buildStructure(List<Terrain> grid, String[] coords, int floors, int foundation, int material) {
@@ -58,7 +60,7 @@ public class BuildCentral implements BuildCity{
             }
             row++;
        }
-       System.out.println("\nTotal cost: $" + String.format("%.2f",totalCost) + "\nStructures built: " + builtStructures);
+       System.out.println("\nTotal cost: $" +green+ String.format("%.2f",totalCost) +reset+ "\nStructures built: " +green+ builtStructures+reset);
        displayStructure(coords, structures);
     }
 }

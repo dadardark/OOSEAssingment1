@@ -3,12 +3,7 @@ package edu.curtin.app;
 import java.util.*;
 import java.util.logging.*;
 
-/**
- * Entry point into the application. To change the package, and/or the name of this class, make
- * sure to update the 'mainClass = ...' line in build.gradle.
- */
 public class App
-
 {
     private static final Logger logger = Logger.getLogger(App.class.getName());
 
@@ -39,6 +34,7 @@ public class App
                 switch (menuOption) {
                     case 1:
                     do{
+                        System.out.print("\033\143");
                         System.out.println("Enter the row for the structure to be built between 1 and " + coords[0]+" : ");
                         while (!sc.hasNextInt()){
                             System.out.println("Invalid input. Please enter a number.");
@@ -90,6 +86,7 @@ public class App
                     case 2:
                     if(configure == 1){
                     do{
+                        System.out.print("\033\143");
                         System.out.println("Enter the number of floors for the structure greater than 0: ");
                         while(!sc.hasNextInt()){
                             System.out.println("Invalid input. Please enter a number.");
@@ -121,11 +118,13 @@ public class App
                         builder.buildStructure(grid, coords, floors, foundation, construction);
                     }
                     else if (configure == 2){
+                        System.out.print("\033\143");
 
                         BuildRandom builder = new BuildRandom();
                         builder.buildStructure(grid, coords, 1, 1, 1);
                     }
                     else if (configure == 3){
+                        System.out.print("\033\143");
                         BuildCentral builder = new BuildCentral();
                         builder.buildStructure(grid, coords, 1, 1, 1);
                     }
@@ -133,6 +132,7 @@ public class App
 
                     case 3:
                     do{
+                        System.out.print("\033\143");
                         System.out.println("Choose a city construction approach : (1) Uniform, (2) Random, (3) Central.");
                         while(!sc.hasNextInt()){
                             System.out.println("Invalid input. Please enter a number.");

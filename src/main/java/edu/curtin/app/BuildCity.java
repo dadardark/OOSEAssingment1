@@ -39,7 +39,8 @@ public interface BuildCity {
         
     default void displayStructure(String[] coords,String[][] structures){
         final String redBold = "\033[1;31m";
-        final String reset = "\033[0m";  
+        final String reset = "\033[0m"; 
+         
         for(int x = 0; x <Integer.parseInt((coords[0]));x++){
             for(int y = 0; y <Integer.parseInt((coords[1]));y++){
                 if(structures[x][y].equals("x")){
