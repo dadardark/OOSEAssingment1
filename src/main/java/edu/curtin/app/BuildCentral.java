@@ -15,18 +15,20 @@ public class BuildCentral implements BuildCity{
         String[][] structures = new String[Integer.parseInt(coords[0])][Integer.parseInt(coords[1])];
          for(Terrain terrain : grid){
             int distance = (int)Math.sqrt((row-((Integer.parseInt(coords[1])-1)/2)^2)+(col-((Integer.parseInt(coords[0])-1)/2)^2));
-            //System.out.println(row + "," + col);
 
-            String matString = null;
+            String matString;
+            if(floors > 0){
+                floors = Math.round(1+(20/(distance+1)));
+            }
 
-            floors = Math.round(1+(20/(distance+1)));
-            foundation = 1;
+            if(foundation > 0){
+                foundation = 1;
+            }
             
             if(distance <= 2){matString = "concrete";}
             else if(distance> 2 && distance <= 4){matString = "brick";}
             else if(distance> 4 && distance <= 6){matString = "stone";}
             else {matString = "wood";}
-            //System.out.println(distance + " " + matString);
 
             if(TerrainGetters.getSwampy(terrain)!= null && foundation == 1){
                 structures[row-1][col-1] = " ";              

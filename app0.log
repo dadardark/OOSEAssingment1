@@ -1,2 +1,2 @@
-Aug 20, 2024 8:19:05 AM edu.curtin.app.ReadFile readMap
-WARNING: Invalid input paramaters for zoning paramaters
+Aug 20, 2024 8:53:55 AM edu.curtin.app.ReadFile readMap
+SEVERE: Invalid filename. Failed to read.

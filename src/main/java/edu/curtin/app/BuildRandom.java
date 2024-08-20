@@ -14,9 +14,15 @@ public class BuildRandom implements BuildCity{
         String[][] structures = new String[Integer.parseInt(coords[0])][Integer.parseInt(coords[1])];
         Random rand = new Random();
          for(Terrain terrain : grid){
-            floors = rand.nextInt(100)+1;
-            foundation = rand.nextInt(2)+1;
-            material = rand.nextInt(4)+1;
+            if(floors > 0){
+                floors = rand.nextInt(100)+1;
+            }
+            if(foundation > 0){
+                foundation = rand.nextInt(2)+1;
+            }
+            if(material > 0){
+                material = rand.nextInt(4)+1;
+            }
 
             String matString = null;
 

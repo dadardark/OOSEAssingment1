@@ -88,14 +88,14 @@ public class ReadFile
                     }
                 }catch(InvalidTerrainException e){
                     System.out.println(e.getMessage(lineNo));
-                    terrains.add(new Flat("flat"));{   
-                    };
+                    terrains.add(new Flat("flat"));
                 }
                     line = reader.readLine();
             }
         }
         catch(IOException e){
-            e.getMessage();
+            logger.severe("Invalid filename. Failed to read.");
+            return null;
         }
         return terrains;
     }
