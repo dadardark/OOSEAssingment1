@@ -48,20 +48,26 @@ public class ReadFile
                         String[] zoneSplit = parts[i].split("=");
                         switch (zoneSplit[0]) {
                             case "heritage":
-                            if(zoneSplit[1].equals("wood") || zoneSplit[1].equals("stone") || zoneSplit[1].equals("brick") ){
-                                terrain = new Heritage(terrain, zoneSplit[1]);
+                            if(zoneSplit.length == 2) {
+                                if(zoneSplit[1].equals("wood") || zoneSplit[1].equals("stone") || zoneSplit[1].equals("brick") ){
+                                    terrain = new Heritage(terrain, zoneSplit[1]);
+                                }
                             }
                                 break;
 
                             case "height-limit":
-                            if(Integer.parseInt(zoneSplit[1]) > 0) {
-                                terrain = new Height(terrain, Integer.parseInt(zoneSplit[1]));
+                            if(zoneSplit.length == 2) {
+                                if(Integer.parseInt(zoneSplit[1]) > 0) {
+                                    terrain = new Height(terrain, Integer.parseInt(zoneSplit[1]));
+                                }
                             }
                                 break;
                             
                             case "flood-risk":
-                            if(Double.parseDouble(zoneSplit[1]) > 0) {
-                                terrain = new Flood(terrain, Double.parseDouble(zoneSplit[1]));
+                            if(zoneSplit.length == 2) {
+                                if(Double.parseDouble(zoneSplit[1]) > 0) {
+                                    terrain = new Flood(terrain, Double.parseDouble(zoneSplit[1]));
+                                }
                             }
                                 break;
 
@@ -70,7 +76,9 @@ public class ReadFile
                                 break;
                         
                             default:
+                            if(lineNo > 1){
                                 logger.warning("Invalid input paramaters for zoning paramaters");
+                                }
                                 break;
                             } 
                     }  

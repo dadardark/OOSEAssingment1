@@ -52,7 +52,7 @@ public class BuildStructure{
             else if(TerrainGetters.getHeight(terrain) != null && floors > TerrainGetters.getHeight(terrain).getHeight()){
                 return ("Cannot build above the height limit. Input floors: " + floors + " > Max floors: " + TerrainGetters.getHeight(terrain).getHeight());
             }
-            else if (TerrainGetters.getFlood(terrain)!= null && floors < 3){
+            else if (TerrainGetters.getFlood(terrain)!= null && floors < 2){
                 return("Cannot have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk());
             }
             else {

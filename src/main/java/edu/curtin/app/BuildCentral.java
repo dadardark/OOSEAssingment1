@@ -40,7 +40,7 @@ public class BuildCentral implements BuildCity{
             else if(TerrainGetters.getHeight(terrain) != null && floors > TerrainGetters.getHeight(terrain).getHeight()){
                 structures[row-1][col-1] = " ";             
              }
-            else if (TerrainGetters.getFlood(terrain)!= null && floors < 3){
+            else if (TerrainGetters.getFlood(terrain)!= null && floors < 2){
                 structures[row-1][col-1] = " ";           
              }
             else {
