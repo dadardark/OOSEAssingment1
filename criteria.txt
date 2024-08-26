@@ -1,0 +1,61 @@
+19817082 | Jacob Arvino | 26/08/2024
+
+3 marks – General code quality.
+
+    No errors or warnings generated from the compiler or from PMD
+    No use of the @SuppressWarning notation
+
+3 marks – Appropriate use of containers.
+
+    List<> used to represent all the terrain objects read in from the file.
+        ReadFile.java Line:16
+    String[] and String[][] used to represent the grid itself and it’s dimensions
+        ReadCoords.java Line:14
+        BuildRandom.java Line:22
+
+5 marks – Clear and distinct class/interface/method responsibilities.
+
+        Class files: App.java, BuildCentral.java, BuildRandom.java, BuildStructure.java, BuildUniform.java, Contamination.java, 
+        Flat.java, Flood.java, Height.java, Heritage.java, InvalidCoordException.java, InvalidTerrainException.java, 
+        ReadCoords.java, ReadFile.java, Rocky.java, Swampy.java, TerrainGetters, ZoningDecorator.java
+        Interfaces: BuildCity.java, Terrain.java, 
+
+6 marks – Appropriate error handling and logging.
+
+    Two custom exceptions used in the program
+        InvalidTerrainException.java - Handles invalid terrain inputs from source file (Not supported terrains, no terrain, multiple 
+        terrains)
+        InvalidCoordException.java - Handles invalid grid dimensions from source file (Negative dimensions, no dimensions, dimensions 
+        not in YxZ format)
+    Logging used throughout the program in conjunction with exception handling
+        App.java Line:166
+        ReadFile.java Line:87
+
+6 marks – Appropriate use of the Strategy Pattern and/or Template Method Pattern.
+
+    Strategy pattern
+        Used for the “Build City” option
+        BuildCity.java is an interface which checks if a structure can be built on a grid square for the grid, and calculates the cost 
+        of the structures that can be built.
+        There are 3 classes which implement this interface:
+            BuildRandom.java
+            BuildCentral.java
+            BuildUniform.java
+        Each class has its own unique method for determining what structure should be built on each grid square
+        The BuildCity.java class contains two default methods:
+            costStructure() and displayStructure()
+        I have chosen to include these in the interface as default functions as the 3 classes which inherit this interface all use 
+        the two methods in the exact same way. Rather than writing the same code in the 3 class files, I chose to make them  default 
+        methods in the interface so any class implementing the interface can use them.
+
+6 marks – Appropriate use of the Decorator Pattern.
+
+    Decorator pattern
+        Used to create terrain objects and apply zoning rules to the terrain where fit.
+        A terrain type (flat, rocky or swampy) is first created(ReadFile.java Line:26). This acts as the context class.
+        Subsequent zoning rules are read in (Readfile.java Line:54) and wrapped around the context class (Readfile.java Line:60)
+        An abstract class (ZoningDecorator.java) implements the Terrain interface and wraps these zoning rules around the context class.
+        The zoning rule classes (Heritage.java) first super the terrain class. They then append their description onto the end of the super class’ description, creating a linked list of terrain and zoning descriptions
+        When terrain.description() is called (BuildStructure.java Line:52), it calls the interface’s function description() method and 
+        returns a string of terrain + any zoning rules wrapped around the context class .
+
