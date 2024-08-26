@@ -6,6 +6,9 @@ package edu.curtin.app;
 */
 
 public class Flat implements Terrain{
+    private String yellow = "\033[1;33m";
+    private String reset = "\033[0m"; 
+    
     private String terrainType;
 
     public Flat(String terrain){
@@ -15,7 +18,7 @@ public class Flat implements Terrain{
     @Override
     public String description() {
         
-        String description = ("\nThis is a " + terrainType + " terrain type.");
+        String description = ("\nThis is a " +yellow+ terrainType +reset+ " terrain type.");
         return description;
     }
 

@@ -6,6 +6,8 @@ package edu.curtin.app;
 */
 
 public class Rocky implements Terrain{
+    private String red = "\033[1;31m";
+    private String reset = "\033[0m"; 
     private String terrainType;
 
     public Rocky(String terrain){
@@ -15,7 +17,7 @@ public class Rocky implements Terrain{
     @Override
     public String description() {
         
-        String description = ("\nThis is a " + terrainType + " terrain type.");
+        String description = ("\nThis is a " +red+ terrainType +reset+ " terrain type.");
         return description;
     }
 
