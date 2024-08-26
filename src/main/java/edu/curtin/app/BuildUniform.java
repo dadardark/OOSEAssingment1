@@ -9,8 +9,8 @@ import java.util.List;
 */
 
 public class BuildUniform implements BuildCity{
-    final String green = "\033[1;32m";
-    final String reset = "\033[0m"; 
+    private String green = "\033[1;32m";
+    private String reset = "\033[0m"; 
 
     @Override
     public void buildStructure(List<Terrain> grid,String[] coords, int floors, int foundation, int material) {

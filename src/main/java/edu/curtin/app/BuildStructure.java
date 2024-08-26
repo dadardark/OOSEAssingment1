@@ -12,9 +12,9 @@ import java.util.logging.*;
 
 public class BuildStructure{
     private static final Logger logger = Logger.getLogger(BuildStructure.class.getName());
-    final static String green = "\033[1;32m";
-    final static String red = "\033[1;31m";
-    final static String reset = "\033[0m"; 
+    private static String green = "\033[1;32m";
+    private static String red = "\033[1;31m";
+    private static String reset = "\033[0m"; 
 
     public static Terrain findStructure(List<Terrain> grid,String[] coords, int xCoord, int yCoord){
 
