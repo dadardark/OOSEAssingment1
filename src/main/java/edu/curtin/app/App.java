@@ -162,6 +162,10 @@ public class App
             }
         } catch (NumberFormatException e) {
             logger.severe("Scanner not closed");
+        } catch(InvalidCoordException e) {
+            logger.severe("Invalid grid dimensions");
+            System.out.println(e.getMessage());
         }
+        
     }
 }

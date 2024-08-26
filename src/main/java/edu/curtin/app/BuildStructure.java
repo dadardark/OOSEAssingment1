@@ -52,22 +52,22 @@ public class BuildStructure{
             System.out.println(terrain.description() +"\n");
 
             if(TerrainGetters.getSwampy(terrain)!= null && foundation == 1){
-                return (red+"Cannot "+reset + "build a slab foundation in a "+ TerrainGetters.getSwampy(terrain).getSwampy());
+                return (red+"Cannot "+reset + "build a slab foundation in a "+ TerrainGetters.getSwampy(terrain).getSwampy()+"\n\n");
             }
             else if (TerrainGetters.getSwampy(terrain) != null && material == 1){
-                return (red+"Cannot "+reset + "build with wood foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy());
+                return (red+"Cannot "+reset + "build with wood foundation in a " + TerrainGetters.getSwampy(terrain).getSwampy()+"\n\n");
             }
             else if (TerrainGetters.getHeritage(terrain)!= null && !(TerrainGetters.getHeritage(terrain).getHeritage()).equals(matString)){
-                return (red+"Cannot "+reset + "build with different heritage materials: Heritage: " + TerrainGetters.getHeritage(terrain).getHeritage() + " != Inputted: " + matString);
+                return (red+"Cannot "+reset + "build with different heritage materials: Heritage: " + TerrainGetters.getHeritage(terrain).getHeritage() + " != Inputted: " + matString+"\n\n");
             }
             else if(TerrainGetters.getHeight(terrain) != null && floors > TerrainGetters.getHeight(terrain).getHeight()){
-                return (red+"Cannot "+reset + "build above the height limit. Input floors: " + floors + " > Max floors: " + TerrainGetters.getHeight(terrain).getHeight());
+                return (red+"Cannot "+reset + "build above the height limit. Input floors: " + floors + " > Max floors: " + TerrainGetters.getHeight(terrain).getHeight()+"\n\n");
             }
             else if (TerrainGetters.getFlood(terrain)!= null && floors < 2){
-                return(red+"Cannot "+reset + "have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk());
+                return(red+"Cannot "+reset + "have less than two floors in a flood-risk zone. Input floors: " + floors + " Flood factor: " + TerrainGetters.getFlood(terrain).getFloodRisk()+"\n\n");
             }
             else {
-                return("Structure "+green+ "can"+reset+ " be built for a cost of: " +green+ String.format("$" + "%.2f",costStructure(terrain, floors, foundation, matString))+reset);
+                return("Structure "+green+ "can"+reset+ " be built for a cost of: " +green+ String.format("$" + "%.2f\n\n",costStructure(terrain, floors, foundation, matString))+reset);
                 
             }
         }

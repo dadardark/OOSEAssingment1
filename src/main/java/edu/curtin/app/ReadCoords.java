@@ -1,5 +1,6 @@
 package edu.curtin.app;
 import java.io.*;
+import java.util.logging.Logger;
 
 /* 
  * 19817082 | Jacob Arvino | OOSE Assignment 1
@@ -7,8 +8,9 @@ import java.io.*;
 */
 
 public class ReadCoords {
+    private static final Logger logger = Logger.getLogger(ReadCoords.class.getName());
 
-    public static String[] readCoords(String fileName){
+    public static String[] readCoords(String fileName) throws InvalidCoordException{
         String[] parts = null;
         try(var reader = new BufferedReader(new FileReader(fileName))){
             
@@ -16,10 +18,14 @@ public class ReadCoords {
             for(int x = 0; x < 1; x++) {
                  parts = line.split(",");
             }
+            if(Integer.parseInt(parts[0]) < 0 || Integer.parseInt(parts[1]) < 0 || parts.length != 2){
+                throw new InvalidCoordException();
+            }
     
         }
         catch(IOException e){
-            System.out.println("Error");
+            logger.severe("Invalid filename. Failed to read.");
+            return null;
         }
         return parts;
     }
