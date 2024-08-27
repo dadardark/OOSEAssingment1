@@ -1,8 +1,16 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Swampy class for terrain types. Implements the Terrain interface.
+*/
+
 public class Swampy implements Terrain{
 
     private String terrainType;
+    private String blue = "\033[1;34m";
+    private String reset = "\033[0m"; 
+
 
     public Swampy(String terrain){
         this.terrainType = terrain;
@@ -11,7 +19,7 @@ public class Swampy implements Terrain{
     @Override
     public String description() {
         
-        String description = ("\nThis is a " + terrainType + " terrain type.");
+        String description = ("\nThis is a " + blue + terrainType + reset + " terrain type.");
         return description;
     }
 

@@ -1,5 +1,10 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Height decorator which extends the ZoningDecorator class
+*/
+
 public class Height extends ZoningDecorator{
     private int noFloors;
 

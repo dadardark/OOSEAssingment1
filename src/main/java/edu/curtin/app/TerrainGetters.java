@@ -1,5 +1,12 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Set of functions which checks if a terrain object has any zoning rules aggregated to it.
+ * Then checks if the specified zoning rule is aggregated onto the terrain object.
+ * Returns the zoning rule if it exists.
+*/
+
 public class TerrainGetters {
     
     public static Height getHeight(Terrain terrain) {

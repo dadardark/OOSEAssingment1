@@ -1,5 +1,10 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Contamination decorator which extends the ZoningDecorator class
+*/
+
 public class Contamination extends ZoningDecorator{
     private boolean active;
 

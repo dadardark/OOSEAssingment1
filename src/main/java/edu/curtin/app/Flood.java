@@ -1,5 +1,10 @@
 package edu.curtin.app;
 
+/* 
+ * 19817082 | Jacob Arvino | OOSE Assignment 1
+ * Flood decorator which extends the ZoningDecorator class
+*/
+
 public class Flood extends ZoningDecorator{
 
     private Double floodRisk;
