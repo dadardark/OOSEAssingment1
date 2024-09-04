@@ -18,7 +18,7 @@ public class ReadCoords {
             for(int x = 0; x < 1; x++) {
                  parts = line.split(",");
             }
-            if(Integer.parseInt(parts[0]) < 0 || Integer.parseInt(parts[1]) < 0 || parts.length != 2){
+            if(Integer.parseInt(parts[0]) < 1 || Integer.parseInt(parts[1]) < 1 || parts.length != 2){
                 throw new InvalidCoordException();
             }
     

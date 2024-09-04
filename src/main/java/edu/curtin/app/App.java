@@ -2,6 +2,7 @@ package edu.curtin.app;
 
 import java.util.*;
 import java.util.logging.*;
+import java.io.*;
 
 /* 
  * 19817082 | Jacob Arvino | OOSE Assignment 1
@@ -18,10 +19,21 @@ public class App
             System.out.println("Please enter filename: ");
             String fileName = sc.nextLine();
             System.out.print("\033\143");
+            List<Terrain> grid;
+            String[] coords;
 
+            try{
+                grid = ReadFile.readMap(fileName);
+                coords = ReadCoords.readCoords(fileName);
+            }catch(IOException e) {
+                logger.severe("Invalid filename. Failed to read.");
+                throw new NumberFormatException();
+            }
 
-            List<Terrain> grid = ReadFile.readMap(fileName);
-            String[] coords = ReadCoords.readCoords(fileName);
+            if(grid.size() != Integer.parseInt(coords[0])*Integer.parseInt(coords[1])){
+                logger.severe("Missing entries: " + grid.size() + " recorded entries, " +  Integer.parseInt(coords[0])*Integer.parseInt(coords[1]) + " expected entries");
+                throw new NumberFormatException();
+            }
 
             boolean repeat = true;
             int menuOption, gridCoordsX, gridCoordsY, floors, foundation, construction;
@@ -161,7 +173,7 @@ public class App
                 }    
             }
         } catch (NumberFormatException e) {
-            logger.severe("Scanner not closed");
+            logger.severe("Invalid input format");
         } catch(InvalidCoordException e) {
             logger.severe("Invalid grid dimensions");
             System.out.println(e.getMessage());

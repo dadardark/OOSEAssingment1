@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class ReadFile
 {
     private static final Logger logger = Logger.getLogger(ReadFile.class.getName());
-    public static List<Terrain> readMap(String fileName)
+    public static List<Terrain> readMap(String fileName) throws IOException
     {
         var terrains = new ArrayList<Terrain>();
         
@@ -99,10 +99,6 @@ public class ReadFile
                 }
                     line = reader.readLine();
             }
-        }
-        catch(IOException e){
-            logger.severe("Invalid filename. Failed to read.");
-            return null;
         }
         return terrains;
     }
